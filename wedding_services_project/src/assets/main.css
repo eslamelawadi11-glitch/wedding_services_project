@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-text: #1a1a1a;
+    --color-background: #ffffff;
+    --color-border: #e5e7eb;
+  }
+
+  .dark {
+    --color-text: #f9fafb;
+    --color-background: #1a1a1a;
+    --color-border: #374151;
+  }
+
+  body {
+    @apply font-body text-gray-700 dark:text-gray-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-primary-600 hover:scale-105 active:scale-100 
+           transition-all duration-200 shadow-soft hover:shadow-elegant
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-600 border-2 border-primary-300 px-6 py-3 rounded-lg 
+           font-semibold hover:bg-primary-50 hover:border-primary-400 
+           transition-all duration-200 dark:bg-gray-800 dark:text-primary-400 
+           dark:border-primary-600 dark:hover:bg-gray-700;
+  }
+
+  .btn-gold {
+    @apply bg-gold-500 text-white px-6 py-3 rounded-lg font-semibold 
+           hover:bg-gold-600 hover:scale-105 transition-all duration-200 
+           shadow-soft focus:outline-none focus:ring-2 focus:ring-gold-500;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg 
+           focus:ring-2 focus:ring-primary-500 focus:border-primary-500 
+           transition-all duration-200 dark:bg-gray-800 dark:border-gray-600 
+           dark:text-white dark:focus:border-primary-400;
+  }
+
+  .card {
+    @apply bg-white rounded-elegant shadow-soft p-6 
+           hover:shadow-lg transition-shadow duration-300 
+           dark:bg-gray-800 dark:text-white;
+  }
+
+  .card-hover {
+    @apply card hover:scale-105 cursor-pointer;
+  }
+
+  .service-card {
+    @apply card overflow-hidden;
+  }
+
+  .category-card {
+    @apply card text-center hover:bg-primary-50 dark:hover:bg-gray-700 
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  .hero-gradient {
+    @apply bg-gradient-to-br from-primary-400 via-primary-500 to-primary-600;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-gray-900 
+           dark:text-white mb-8 text-center;
+  }
+
+  .rating-stars {
+    @apply text-yellow-500;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+  }
+
+  .badge-error {
+    @apply badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+  }
+
+  .stat-card {
+    @apply card text-center;
+  }
+
+  .stat-number {
+    @apply text-4xl font-bold text-primary-600 dark:text-primary-400;
+  }
+
+  .stat-label {
+    @apply text-sm font-medium text-gray-600 dark:text-gray-400 mt-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Mapbox GL Styles */
+.mapboxgl-popup-content {
+  @apply dark:bg-gray-800 dark:text-white rounded-lg p-4;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  @apply bg-gray-200 dark:bg-gray-700 rounded;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus Visible */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+}
